@@ -1,0 +1,19 @@
+<div class= "row">
+  <div class = "col-sm-10">
+    <div class ="container">
+      <h2>Questions</h2>
+      <%@questions.each do |question|%>
+        <div class="jumbotron" style = "word-wrap: break-word; size: 100x60 ;" >
+          <h2><%=question.title%></h2>
+           <p style = "font-family: 'Calibri','Slate Pro','sans-serif' !important; color:#262626; font-size: 16px!important "><%=truncate(question.body, length: 300,omission: '...(continued)' ).html_safe%></p>
+          <p><strong><%=question.user.name%></strong></p>
+        
+          <a href = <%="/questions/#{question.slug}"%>><button type="button" class="btn btn-primary btn-sm">Read More</button></a>
+        </div>
+      <%end%>
+    </div>
+  </div>
+  <div class = "col-sm-2">
+    <a href = "/questions/new"><button type="button" class="btn btn-success">Create Question</button></a>
+  </div>
+</div>

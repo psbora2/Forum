@@ -1,0 +1,23 @@
+<div class="well well-sm">
+  <p class="text-muted">Answered by <strong><%= @answer.user.name %></strong> on
+    <%= l(@answer.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+    <p><%= @answer.content %></p>    
+    <%if user_signed_in? %>
+    <div class =<%="reply#{@answer.id}"%>>
+      <div class= "row"> 
+        <div class = "col-sm-1">     
+          <button  class= "ajax btn btn-primary btn-sm" value = <%=@answer.id%> >Reply</button>
+          <% if (current_user && @answer.user.id == current_user.id && Answer.where(parent_id: @answer.id).empty? ) %>
+        </div>
+        <div>
+          <%= button_to "Delete", answer_path(@answer.id), :method => "delete",data: { confirm: "You sure?" }, :class =>"btn btn-danger btn-sm" %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+
+</div>
+
+

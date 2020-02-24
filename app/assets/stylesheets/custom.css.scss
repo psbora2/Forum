@@ -1,0 +1,71 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+input[type = "text"] {
+  rows: 10;
+  columns: 20;
+
+}
+
+div.article{
+  background-color: #add8e6 !important;
+}
+
+
+
+/* 5 levels nesting */
+.replies .replies .replies .replies .replies {margin-left: 0;}
+
+div.panel-success{
+  font-size: 30px;
+}
+
+div.jumbotron{
+  padding-bottom: 10px;
+  padding-top: 10px; 
+}
+
+
+.replies {margin-left: 50px;}
+
+/* 5 levels nesting */
+.replies .well{background-color: rgba(0, 0, 255, 0.22);}
+
+.replies .replies .well{background-color: rgba(0, 0, 255, 0.30);}
+
+.replies .replies .replies .well{background-color: rgba(0, 0, 255, 0.38);}
+.replies .replies .replies .replies .well{background-color: rgba(0, 0, 255, 0.46);}
+
+
+.btn-sm {
+height: 20px;
+padding: 1px;
+font-size:13px;
+width: 30  
+}
+
+
+.col-sm-1{
+  width:60px !important;
+}

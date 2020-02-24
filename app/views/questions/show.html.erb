@@ -1,0 +1,71 @@
+<div class ="container">
+  <div class="well" style = "word-wrap: break-word;">
+    <h2><%=@question.title%></h2>
+    <p ><%=raw @question.body.html_safe%></p>
+    <h3><%=@question.author%></strong></h3>
+
+    <div class= "row">
+      <%if   current_user && @question.user_id == current_user.id%>
+      <div class= "col-sm-1">
+        <a href = "/questions/<%=@question.slug%>/edit"> <button type="button" class="btn btn-info btn-sm">Edit</button></a>
+      </div>
+      <div style = "width:20%">
+           <%= button_to "Delete", question_path(@question.id), :method => "delete",data: { confirm: "You sure?" }, :class =>"btn btn-danger btn-sm" %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <%= parent_question(@question.id)%>
+  <div>
+    <% if user_signed_in? %>
+      <% @answer = Answer.new%>
+      <%= form_for(@answer) do |f| %>
+        <% if @answer.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+            <ul>
+            <% @answer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :answer %><br>
+          <%= f.text_area :content,  cols: "60", rows: "5" %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :question_id, :value => @question.id %>
+        </div>
+
+        <div class="field">
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+
+      <% end %>
+        <% else%>
+          <div class = "well">
+          <p>You have to <a href = "/users/sign_in" style = "color: blue;"><strong>login</strong> </a> for post a question</p>
+          </div>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+    $("button.ajax").click(function(){
+  var id = $(this).val()
+      $.ajax({
+        type: "get",
+        url: "<%= reply_path%>",
+        data: {id: id}
+      });
+    });
+});
+</script>
