@@ -1,9 +1,9 @@
 GIT
-  remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 984dac788d106faf60313cd0e51593474a513078
+  remote: https://github.com/FriendlyId/friendly_id.git
+  revision: a93de596c0858ac508b9936f6e2d911355b86df0
   branch: master
   specs:
-    friendly_id (5.3.0)
+    friendly_id (6.0.0)
       activerecord (>= 4.0.0)
 
 GEM
@@ -96,12 +96,14 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     minitest (5.14.0)
-    nokogiri (1.9.1)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (0.18.4)
+    racc (1.6.0)
     rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
