@@ -1,9 +1,9 @@
 GIT
-  remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 984dac788d106faf60313cd0e51593474a513078
+  remote: https://github.com/FriendlyId/friendly_id.git
+  revision: bd3aab45de0d9bf0725e18e24496d26a4051f060
   branch: master
   specs:
-    friendly_id (5.3.0)
+    friendly_id (6.0.0)
       activerecord (>= 4.0.0)
 
 GEM
@@ -166,7 +166,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.6)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
